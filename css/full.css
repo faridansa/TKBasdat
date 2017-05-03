@@ -1,0 +1,55 @@
+/*
+ * Start Bootstrap - Full (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+body {
+    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+/*
+#header{
+	font-family: 'Shift', sans-serif;
+
+	background: rgba(0, 0, 0, 0.2);
+}*/
+h1{
+	font-size: 50px;
+	color: #ffffff;
+	font-weight: bold;
+	padding: 30px 50px 30px 50px;
+	position: absolute;
+	left: 190px;
+	top: 400px;
+	background: rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+h2{
+	font-size: 30px;
+	color: #ffdb00;
+	font-weight: bold;
+	padding: 30px 50px 30px 50px;
+	position: absolute;
+	left: 443px;
+	top: 320px;
+	/*background: rgba(0, 0, 0, 0.5);*/
+	text-align: center;
+}
+img{
+	position: absolute;
+	margin: auto;
+	padding: 10px;
+	left: 530px;
+	top: 120px;
+}
+/* Header Image Background - Change the URL below to your image path (example: ../images/background.jpg) */
+.container ul li{
+	color: #ffdb00;
+}
+.full {
+    background: url('http://www.indoforum.nl/wp-content/uploads/2014/11/Perpustakaan_Pusat_Universitas_Indonesia.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
