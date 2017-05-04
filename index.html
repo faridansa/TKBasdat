@@ -1,75 +1,190 @@
 <!DOCTYPE html>
-<html class="full" lang="en">
-<!-- Make sure the <html> tag is set to the .full CSS class. Change the background image in the full.css file. -->
-
+<html lang="en">
 <head>
-
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Penerimaan Mahasiswa Baru</title>
-
-    <!-- Bootstrap Core CSS -->
+    <title>SIRIMA</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/full.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet"> 
+    <link href="css/lightbox.css" rel="stylesheet"> 
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+	    <script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+        <![endif]-->       
+        <link rel="shortcut icon" href="images/UILogo.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    </head><!--/head-->
 
-</head>
+    <body>
+       <header id="header">      
+        <div class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">SIRIMA</a>
+                    <a class="navbar-brand" href="index.html">
+                    	<img src="images/Universitas Inovasi-01.png" id="LogoUI" alt="logo">
+                    </a>
+                    
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="dropdown"><a href="#">Pages <i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="riwayatdaftar.html">Riwayat Pendaftaran</a></li>
+                                <li><a href="kartuujian.html">Kartu Ujian</a></li>
+                                <li><a href="aboutus2.html">Kartu Ujian juga yey</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                            </ul>
+                        </li>                    
+                        <li class="dropdown"><a href="blog.html">Lihat Pendaftaran <i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="blog.html">Rekap Pendaftaran Jenjang</a></li>
+                                <li><a href="blog.html">Daftar Pelamar</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="portfolio.html">About US <i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="#footer">Contact</a></li>
+                                <li><a href="contact2.html">Map</a></li>
+                            </ul>
+                        </li>                         
+                    </ul>
+                </div>
+                <div class="search">
+                    <form role="form">
+                        <i class="fa fa-search"></i>
+                        <div class="field-toggle">
+                            <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                        </div>
+                    </form>
+                </div>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Login</a>
-                    </li>
-                    <li>
-                        <a href="#">Register</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+        <div id="img-navbar" class="col-sm-12 text-center bottom-separator">
+            <img src="images/tour-bg.png" class="img-responsive inline" alt="">
+        </div>
 
-    <!-- Put your page content here! -->
-    <header>
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e9/UI_Logo.svg/1024px-UI_Logo.svg.png" alt="image" width="250" height="250">
-    <h2>Universitas Indonesia</h2>
-    <h1>PENERIMAAN MAHASISWA BARU</h1>
     </header>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <!--/#header-->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <section id="home-slider">
+     <div class="container">
+        <div class="row">
+            <div class="main-slider">
+                <div class="slide-text">
+                  <h1>Welcome to Sistem Informasi Penerimaan Mahasiswa</h1>
+                  <p>Sistem Informasi Penerimaan Mahasiswa (SIRIMA) merupakan sistem pendaftaran online mahasiswa baru yang diselenggarakan oleh Universitas Inovasi.
+                    <br>Tersedia 2 jalur pendaftaran, yakni jalur UUI (Undangan UI) yang diperuntukkan untuk jenjang S1, serta SEMAS UI (Seleksi Masuk UI) yang diperuntukkan untuk jenjang S1, S2, dan S3.</p>
+                    <div id= "login-reg-nav"> 
+                        <a href="login.html" class="btn btn-common">SIGN IN</a>
+                    </div>  
+                </div>
+                <img src="images/my-icons-collection/png/001-university.png" class="slider-house" alt="slider image">
+                <img src="images/home/slider/sun.png" class="slider-sun" alt="slider image">
+                <img src="images/home/slider/birds2.png" class="slider-birds2" alt="slider image">
+            </div>
+        </div>
+    </div>
+    <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
+</section>
+<!--/#home-slider-->
 
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+                <div class="single-service">
+                    <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
+                        <img src="images/home/icon1.png" alt="">
+                    </div>
+                    <h2>UNDANGAN UI</h2>
+                    <p>Undangan UI berlaku untuk menerima mahasiswa baru pada jenjang S1 tanpa harus mengikuti ujian seleksi. Tingkat pendidikan terakhir calon mahasiswa baru harus SMA/SMK sederajat.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                <div class="single-service">
+                    <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
+                        <img src="images/home/icon2.png" alt="">
+                    </div>
+                    <h2>SEMAS UI SARJANA</h2>
+                    <p>Seleksi Masuk UI Sarjana menerima mahasiswa baru pada jenjang S1. Calon mahasiswa baru akan mengikuti Ujian Seleksi sesuai dengan jurusan atau prodi yang diinginkan.</p>
+                </div>
+            </div>
+            <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                <div class="single-service">
+                    <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
+                        <img src="images/home/icon3.png" alt="">
+                    </div>
+                    <h2>SEMAS UI PASCA SARJANA</h2>
+                    <p>Seleksi Masuk UI Sarjana menerima mahasiswa baru pada jenjang S2 dan S3. Calon mahasiswa baru akan mengikuti Ujian Seleksi sesuai dengan jurusan atau prodi yang direkomendasikan. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/#services-->
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 text-center bottom-separator">
+                <img src="images/home/under.png" class="img-responsive inline" alt="">
+            </div>
+            <div class="col-sm-4 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+            </div>
+            <div>
+                <div class="col-sm-4 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <h2>Contacts</h2>
+                    <address>
+                        E-mail: <a href="mailto:someone@example.com">email@email.com</a> <br> 
+                        Phone: +1 (123) 456 7890 <br> 
+                        Fax: +1 (123) 456 7891 <br> 
+                    </address>
+                </div>
+                <div class="col-sm-4 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
+                    <h2>Address</h2>
+                    <address>
+                        Unit C2, St.Vincent's Trading Est., <br> 
+                        Feeder Road, <br> 
+                        Bristol, BS2 0UY <br> 
+                        United Kingdom <br> 
+                    </address>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="copyright-text text-center">
+                <p>&copy; Universitas Inovasi 2017. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</footer>
+<!--/#footer-->
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/lightbox.min.js"></script>
+<script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>   
 </body>
-
 </html>
