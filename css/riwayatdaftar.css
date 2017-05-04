@@ -15,19 +15,15 @@
 }
 
 p.outset {
-	border: 1px solid grey;
+	border: 1px solid black;
 }
 
 #back-button {
 	margin: 0 40% 0 45%;
 }
 
-div #pagination {
-	display: block;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    float: left;
-    margin-left: 3px;
+.pagination {
+	display: flex;
+	justify-content: center;
 }
 
