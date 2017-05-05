@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Rekap Pendaftaran | SIRIMA</title>
+    <title>Daftar Pelamar | SIRIMA</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/lightbox.css" rel="stylesheet"> 
@@ -14,8 +14,8 @@
     <link href="css/responsive.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
-	    <script src="js/html5shiv.js"></script>
-	    <script src="js/respond.min.js"></script>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
         <![endif]-->       
         <link rel="shortcut icon" href="images/UILogo.png">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -46,7 +46,7 @@
     </head><!--/head-->
 
     <body>
-     <header id="header">      
+       <header id="header">      
         <div class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
@@ -65,20 +65,26 @@
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="index.html">Home</a></li>
-                       <!--  <li class="dropdown"><a href="#">Pages <i class="fa fa-angle-down"></i></a>
+                        <li class="dropdown"><a href="#">Pages <i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
                                 <li><a href="riwayatdaftar.html">Riwayat Pendaftaran</a></li>
                                 <li><a href="kartuujian.html">Kartu Ujian</a></li>
                                 <li><a href="aboutus2.html">Kartu Ujian juga yey</a></li>
                                 <li><a href="pricing.html">Pricing</a></li>
                             </ul>
-                        </li>            -->         
-                        <!-- <li class="dropdown"><a href="blog.html">Lihat Pendaftaran <i class="fa fa-angle-down"></i></a>
+                        </li>                    
+                        <li class="dropdown"><a href="blog.html">Lihat Pendaftaran <i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
                                 <li><a href="blog.html">Rekap Pendaftaran Jenjang</a></li>
                                 <li><a href="blog.html">Daftar Pelamar</a></li>
                             </ul>
-                        </li>    -->                     
+                        </li>
+                        <li class="dropdown"><a href="portfolio.html">About US <i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="#footer">Contact</a></li>
+                                <li><a href="contact2.html">Map</a></li>
+                            </ul>
+                        </li>                         
                     </ul>
                 </div>
                 <div class="search">
@@ -96,12 +102,12 @@
 
     <section id="page-breadcrumb">
         <div class="vertical-center sun">
-         <div class="container">
-                <div class="col-sm-12 text-center bottom-separator">
-                    <h1>Rekap Pendaftaran</h1>
-                    <p>Jenjang : S1</p>
-                </div>
-             <!-- <img src="images/home/under.png" class="img-responsive inline" alt=""> -->
+           <div class="container">
+            <div class="col-sm-12 text-center bottom-separator">
+                <h1>Daftar Pelamar Diterima</h1>
+                <p>Prodi : S1 Ilmu Komputer Reguler</p>
+            </div>
+            <!-- <img src="images/home/under.png" class="img-responsive inline" alt=""> -->
         </div>
     </div>
 </div>
@@ -112,85 +118,71 @@
     <div class="container">
         <table class="responsive-table">
             <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama Prodi</th>
-                    <th>Jenis Kelas</th>
-                    <th>Nama Fakultas</th>
-                    <th>Kuota</th>
-                    <th>Jumlah Pelamar</th>
-                    <th>Jumlah Diterima</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>No</td>
-                    <td>Nama Prodi</td>
-                    <td>Jenis Kelas</td>
-                    <td>Nama Fakultas</td>
-                    <td>Kuota</td>
-                    <td>Jumlah Pelamar</td>
-                    <td>Jumlah Diterima</td>
-                </tr>
-                <tr>
-                    <td>No</td>
-                    <td>Nama Prodi</td>
-                    <td>Jenis Kelas</td>
-                    <td>Nama Fakultas</td>
-                    <td>Kuota</td>
-                    <td>Jumlah Pelamar</td>
-                    <td>Jumlah Diterima</td>
-                </tr>
-                <tr>
-                    <td>No</td>
-                    <td>Nama Prodi</td>
-                    <td>Jenis Kelas</td>
-                    <td>Nama Fakultas</td>
-                    <td>Kuota</td>
-                    <td>Jumlah Pelamar</td>
-                    <td>Jumlah Diterima</td>
-                </tr>
-                <tr>
-                    <td>No</td>
-                    <td>Nama Prodi</td>
-                    <td>Jenis Kelas</td>
-                    <td>Nama Fakultas</td>
-                    <td>Kuota</td>
-                    <td>Jumlah Pelamar</td>
-                    <td>Jumlah Diterima</td>
-                </tr>
-                <tr>
-                    <td>No</td>
-                    <td>Nama Prodi</td>
-                    <td>Jenis Kelas</td>
-                    <td>Nama Fakultas</td>
-                    <td>Kuota</td>
-                    <td>Jumlah Pelamar</td>
-                    <td>Jumlah Diterima</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="row">
-        <div class="blog-pagination">
-            <ul class="pagination">
-              <li><a href="#">left</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">6</a></li>
-              <li><a href="#">7</a></li>
-              <li><a href="#">8</a></li>
-              <li><a href="#">9</a></li>
-              <li><a href="#">right</a></li>
-          </ul>
-      </div>
+             <tr>
+                 <th>No</th>
+                 <th>Id Pendaftaran</th>
+                 <th>Nama Lengkap</th>
+                 <th>Alamat</th>
+                 <th>Jenis Kelamin</th>
+                 <th>Tanggal Lahir</th>
+                 <th>No. KTP</th>
+                 <th>Email</th>
+             </tr>
+         </thead>
+         <tbody>
+          <tr>
+            <td>No</td>
+            <td>Id Pendaftaran</td>
+             <td>Nama Lengkap</td>
+             <td>Alamat</td>
+             <td>Jenis Kelamin</td>
+             <td>Tanggal Lahir</td>
+             <td>No. KTP</td>
+             <td>Email</td>
+         </tr>
+         <tr>
+            <td>No</td>
+            <td>Id Pendaftaran</td>
+             <td>Nama Lengkap</td>
+             <td>Alamat</td>
+             <td>Jenis Kelamin</td>
+             <td>Tanggal Lahir</td>
+             <td>No. KTP</td>
+             <td>Email</td>
+         </tr>
+         <tr>
+            <td>No</td>
+            <td>Id Pendaftaran</td>
+             <td>Nama Lengkap</td>
+             <td>Alamat</td>
+             <td>Jenis Kelamin</td>
+             <td>Tanggal Lahir</td>
+             <td>No. KTP</td>
+             <td>Email</td>
+         </tr>
+     </tbody>
+ </table>
+</div>
+<div class="row">
+    <div class="blog-pagination">
+        <ul class="pagination">
+          <li><a href="#">left</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">6</a></li>
+          <li><a href="#">7</a></li>
+          <li><a href="#">8</a></li>
+          <li><a href="#">9</a></li>
+          <li><a href="#">right</a></li>
+      </ul>
   </div>
+</div>
 </section>
 
-   <footer id="footer">
+ <footer id="footer">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12  bottom-separator">
@@ -235,6 +227,6 @@
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/homejs.js"></script>    
+    <script type="text/javascript" src="js/homejs.js"></script>  
 </body>
 </html>

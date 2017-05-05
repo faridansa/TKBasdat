@@ -24,8 +24,7 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/lightbox.min.js"></script>
         <script type="text/javascript" src="js/wow.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script> 
-        <script type="text/javascript" src="js/homejs.js"></script>   
+        <script type="text/javascript" src="js/main.js"></script>   
 
         <!--Import materialize.css-->
         <meta name="viewport" content="width=device-width, initial-scale=1">      
@@ -60,11 +59,29 @@
                     </a>
                     
                 </div>
-                 <div id="navbar" class="collapse navbar-collapse">
-                    <ul id = "ul-nav-bar" class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.html">Beranda</a></li>
-                        <li><a href="shortcodes.html ">Tentang Kami</a></li> 
-                     
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="dropdown"><a href="#">Pages <i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="riwayatdaftar.html">Riwayat Pendaftaran</a></li>
+                                <li><a href="kartuujian.html">Kartu Ujian</a></li>
+                                <li><a href="aboutus2.html">Kartu Ujian juga yey</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                            </ul>
+                        </li>                    
+                        <li class="dropdown"><a href="blog.html">Lihat Pendaftaran <i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="blog.html">Rekap Pendaftaran Jenjang</a></li>
+                                <li><a href="blog.html">Daftar Pelamar</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a href="portfolio.html">About US <i class="fa fa-angle-down"></i></a>
+                            <ul role="menu" class="sub-menu">
+                                <li><a href="#footer">Contact</a></li>
+                                <li><a href="contact2.html">Map</a></li>
+                            </ul>
+                        </li>                         
                     </ul>
                 </div>
                 <div class="search">
