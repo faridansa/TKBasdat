@@ -1,0 +1,43 @@
+LOKASI_UJIAN
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Jakarta','Kampus ABC');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Jakarta','Balai Kanjani 1A');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Jakarta','Balai Kanjani 2A');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Jakarta','Kampus Atmadi');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Jakarta','SMA 44 Jakarta');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Depok','Stadion Pucung');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Depok','SMA 123 Depok');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Depok','SMA 55 Depok');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Surabaya','Kampus UUH');
+INSERT INTO LOKASI_UJIAN(Kota, Tempat) VALUES ('Medan','SMA 999 Medan');
+=========================================================
+LOKASI_JADWAL
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Kampus ABC',1,2015,S1,10/8/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Balai Kanjani 1A',1,2015,S1,10/8/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Balai Kanjani 2A',1,2015,S3,29/7/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Kampus Atmadi',1,2015,S2,1/8/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','SMA 44 Jakarta',1,2015,S1,10/8/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','Stadion Pucung',1,2015,S1,10/8/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','SMA 123 Depok',1,2015,S1,10/8/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','SMA 55 Depok',1,2015,S1,10/8/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Surabaya','Kampus UUH',1,2015,S3,29/7/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Medan','SMA 999 Medan',1,2015,S2,1/8/2015 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Kampus ABC',2,2016,S1,10/8/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Balai Kanjani 1A',2,2016,S1,10/8/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Balai Kanjani 2A',2,2016,S3,29/7/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Kampus Atmadi',2,2016,S2,1/8/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','SMA 44 Jakarta',2,2016,S1,10/8/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','Stadion Pucung',2,2016,S1,10/8/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','SMA 123 Depok',2,2016,S1,10/8/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','SMA 55 Depok',2,2016,S1,10/8/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Surabaya','Kampus UUH',2,2016,S3,29/7/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Medan','SMA 999 Medan',2,2016,S2,1/8/2016 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Kampus ABC',3,2017,S1,10/8/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Balai Kanjani 1A',3,2017,S1,10/8/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Balai Kanjani 2A',3,2017,S3,29/7/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','Kampus Atmadi',3,2017,S2,1/8/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Jakarta','SMA 44 Jakarta',3,2017,S1,10/8/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','Stadion Pucung',3,2017,S1,10/8/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','SMA 123 Depok',3,2017,S1,10/8/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Depok','SMA 55 Depok',3,2017,S1,10/8/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Surabaya','Kampus UUH',3,2017,S3,29/7/2017 08:00);
+INSERT INTO LOKASI_JADWAL(Kota, Tempat, Nomor_Periode, Jenjang, Waktu_Awal) VALUES ('Medan','SMA 999 Medan',3,2017,S2,1/8/2017 08:00);
