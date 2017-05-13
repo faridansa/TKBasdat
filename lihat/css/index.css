@@ -1,0 +1,12 @@
+#LogoUI {
+  width: calc(100% - 42rem);
+}
+
+.slider-sun {
+	margin right: 10%;
+}
+
+body {
+	width: 100% !important;
+	height: 100% !important;
+}

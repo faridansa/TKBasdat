@@ -1,0 +1,33 @@
+#LogoUIRD {
+  width: calc(100% - 42rem);
+}
+
+.title {
+	display: block;
+	margin: auto;
+	width: 50%;
+}
+
+.nama-pelamar {
+	display: block;
+	margin: auto;
+	width: 50%;
+}
+
+p.outset {
+	border: 1px solid grey;
+}
+
+#back-button {
+	margin: 0 40% 0 45%;
+}
+
+div #pagination {
+	display: block;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-left: 3px;
+}
+
