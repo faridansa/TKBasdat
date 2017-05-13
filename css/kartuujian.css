@@ -2,10 +2,19 @@
   width: calc(100% - 42rem);
 }
 
-.input-id {
-	width: calc(100% - 5rem);
+body {
 	margin: auto;
-	padding-left: 33%;
+	padding: auto;
+}
+
+.input-id {
+	margin: auto;
+	width: calc(100% - 50rem);
+}
+
+.input-id .row{
+	margin: auto;
+	width: calc(100% - 20rem);
 }
 
 
@@ -28,8 +37,3 @@
 	z-index: -1;
 }
 
-.input-id {
-	display: block;	
-	margin: auto;
-	padding-top: 5vw;
-}

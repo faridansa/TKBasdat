@@ -1,11 +1,8 @@
 <?php
     session_start();
-
     function connectDB(){
         $conn = pg_connect("dbname=graceangelica user=postgres password=bocahtengil");
-        if($conn){
-            echo("Succeed Connecting to The Database");
-        }else {
+        if(!$conn){
              die("Connection failed");
         }
         return $conn;
@@ -15,10 +12,8 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link href="Page6.css" rel="stylesheet">
-
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
@@ -456,6 +451,7 @@
     </footer>
     <!--/#footer-->
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>  
