@@ -56,19 +56,17 @@
         </header>
         <!--/#header-->
         <div class="input-id">
-         <div class="form-id">
-            <form class="col s12" id="inputid">
-              <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="form-group">
-                        <input id="pendaftaran" type="id-pendaftaran" name="pendaftaran" class="form-control" required="required" placeholder="Id Pendaftaran" onvalid="openModal();"/>
-                     </div>
-                        <input type="hidden" value="Lihat" name="command">
-                        <button class="btn btn-submit btn-login" data-target="#myModal" id="btn-login"> LIHAT </button>
-                </div>
-            </form>
+            <div class="row">
+                <form class="col s12" id="inputid">
+                        <div class="form-group">
+                            <input id="pendaftaran" type="id-pendaftaran" name="pendaftaran" class="form-control" required="required" placeholder="Id Pendaftaran" onvalid="openModal();"/>
+                         </div>
+                         <div class="form-group">
+                            <input type="hidden" value="Lihat" name="command">
+                            <button class="btn btn-submit btn-login" data-target="#myModal" id="btn-login"> LIHAT </button>
+                          </div>
+                </form>
             </div>
-          </div>
         </div>
         <!--MODAL LIHAT KARTU UJIAN-->
          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -80,36 +78,8 @@
                     </div>
                     <div class="modal-body">
                         <form method="post" action="index.php">
-<!--                             <table class="table table-striped" id="tblGrid">
-                                <thead id="tblHead">
-                                  <tr>
-                                    <th>Data</th>
-                                    <th>Pelamar</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <td>Id Pendaftaran </td>
-                                    <td><?php echo $result[0]?></td>
-                                  </tr>
-                                  <tr>
-                                    <td>Nama Lengkap </td>
-                                    <td><?php echo $result[1]?></td>
-                                  </tr>
-                                  <tr>
-                                    <td>Status </td>
-                                    <td><?php if($flag == "true") {echo "LULUS";}else{ echo "TIDAK LULUS";}?></td>
-                                  </tr>
-                                  <tr>
-                                    <td>Prodi </td>
-                                    <td><?php if($flag == "true") {echo $result[3];}else{"-";}?></td>
-                                  </tr>
-                                  <tr>
-                                    <td>NPM </td>
-                                    <td><?php if($flag == "true") {echo $result[4];}else{"-";}?></td>
-                                  </tr>
-                                </tbody>
-                            </table> -->
+                           <table class="table table-striped" id="tblGrid">
+                            </table>
                         </form>
                         <button id="back-button" type="submit" class="btn btn-default btn-default pull-center" data-dismiss="modal">Back</button>
                     </div>
@@ -181,7 +151,17 @@
                         data: $("#inputid").serialize(),
                         success: function(data){
                             var datafetched = JSON.parse(data);
-                            console.log(datafetched);
+                            var sizeJSON = Object.keys(datafetched).length;
+                            $("#tblGrid").empty();
+                        $("#tblGrid").append("<thead id='tblHead'><tr><th>Data</th><th>Pelamar</th></tr></thead>");
+                        let content = '';
+                        if (sizeJSON === 7) {
+                            content = `<tbody><tr><td>Id Pendaftaran</td><td>${datafetched[0]}</td></tr><tr><td>Nama Lengkap </td><td>${datafetched[1]}</td></tr><tr><td>Status </td><td>LULUS</td></tr><tr><td>Prodi </td><td>${datafetched[5]} ${datafetched[3]} ${datafetched[6]}</td></tr><tr><td>NPM </td><td>${datafetched[4]}</td></tr></tbody>`;
+                        } else {
+                           content = `<tbody><tr><td>Id Pendaftaran</td><td>${datafetched[0]}</td></tr><tr><td>Nama Lengkap </td><td>${datafetched[1]}</td></tr><tr><td>Status </td><td>TIDAK LULUS</td></tr></tbody>`;
+                        }
+                        
+                        $("#tblGrid").append(content);
                             openModal();
                         }
                     });

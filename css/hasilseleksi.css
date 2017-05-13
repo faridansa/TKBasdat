@@ -2,12 +2,20 @@
   width: calc(100% - 42rem);
 }
 
-.input-id {
-	width: calc(100% - 5rem);
+body {
 	margin: auto;
-	padding-left: 33%;
+	padding: auto;
 }
 
+.input-id {
+	width: calc(100% - 40rem);
+	margin: auto;
+}
+
+.input-id .row{
+	margin: auto;
+	width: calc(100% - 60rem);
+}
 
 #img-navbar {
 	width: 100% !important;
@@ -26,10 +34,4 @@
 
 #logo {
 	z-index: -1;
-}
-
-.input-id {
-	display: block;	
-	margin: auto;
-	padding-top: 5vw;
 }

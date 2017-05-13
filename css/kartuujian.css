@@ -9,12 +9,12 @@ body {
 
 .input-id {
 	margin: auto;
-	width: calc(100% - 50rem);
+	width: calc(100% - 40rem);
 }
 
 .input-id .row{
 	margin: auto;
-	width: calc(100% - 20rem);
+	width: calc(100% - 60rem);
 }
 
 
@@ -25,7 +25,6 @@ body {
 	align-items: center !important;
 	align-content: center !important;
 	background-image: url(../images/home/tour-bg-1.png);
-
 }
 
 .title {

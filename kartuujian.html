@@ -58,16 +58,15 @@
 
         <div class="input-id">
             <div class="row">
-            <form class="col s12" id="inputid">
-              
-                <div class="col-md-4 col-sm-6">
+                <form class="col s12" id="inputid"> 
                     <div class="form-group">
                         <input id="pendaftaran" type="id-pendaftaran" name="pendaftaran" class="form-control" required="required" placeholder="Id Pendaftaran" onvalid="openModal();"/>
-                     </div>
+                    </div>
+                    <div class="form-group">
                         <input type="hidden" value="Lihat" name="command">
                         <button class="btn btn-submit btn-login" data-target="#myModal" id="btn-login"> LIHAT </button>
-                </div>
-            </form>
+                    </div>
+                </form>
             </div>
         </div>
 
@@ -157,9 +156,10 @@
                         var datafetched = JSON.parse(data);
                         $("#tblGrid").empty();
                         $("#tblGrid").append("<thead id='tblHead'><tr><th>Data</th><th>Pelamar</th></tr></thead>");
-                        $.each(datafetched,function(key, value){
-                             $("#tblGrid").append(value);
-                        });
+                        var months = {'1' : 'Januari','2' : 'Februari','3' :'Maret','4' :'April','5' :'Mei','6' :'Juni','7' :'Juli','8' :'Agustus','9' :'September','10' :'Oktober','11' :'November','12' :'Desember'};
+                        let content = `<tbody><tr><td>Id Pendaftaran</td><td>${datafetched[0]}</td></tr><tr><td>Nama Lengkap </td><td>${datafetched[1]}</td></tr><tr><td>Nomor Kartu Ujian </td><td>${datafetched[2]}</td></tr><tr><td>Lokasi Ujian </td><td>${datafetched[3]}, ${datafetched[4]}</td></tr><tr><td>Waktu Ujian </td><td>${datafetched[8]} ${months[datafetched[7]]} ${datafetched[9]} ${datafetched[10]}:${datafetched[11]} WIB - ${datafetched[13]} ${months[datafetched[12]]} ${datafetched[14]} ${datafetched[15]}${datafetched[16]} WIB</td></tr></tbody>`;
+                        $("#tblGrid").append(content);
+                    
                         openModal();
                     }
                 });
