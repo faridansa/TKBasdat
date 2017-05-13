@@ -1,3 +1,16 @@
+<?php
+    session_start();
+
+    function connectDB(){
+        $conn = pg_connect("dbname=graceangelica user=postgres password=bocahtengil");
+        if($conn){
+            echo("Succeed Connecting to The Database");
+        }else {
+             die("Connection failed");
+        }
+        return $conn;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,14 +54,14 @@
                             <span class="icon-bar"></span>
                         </button> 
                         
-                        <a class="navbar-brand" " href="index.html">
+                        <a class="navbar-brand" " href="index.php">
                             <img src="images/Universitas Inovasi-01.png" id="LogoUIRD" alt="Universitas Inovasi">
                         </a>                   
                     </div>
                     <div class="collapse navbar-collapse">
                         <ul id="ul-nav-bar" class="nav navbar-nav navbar-right">
-                          <li><a href="index.html">Beranda</a></li>
-                          <li><a href="shortcodes.html ">Tentang Kami</a></li>                  
+                          <li><a href="index.php">Beranda</a></li>
+                          <li><a href="shortcodes.html">Tentang Kami</a></li>                  
                         </ul>
                     </div>
                 </div>
@@ -442,8 +455,6 @@
         </div>
     </footer>
     <!--/#footer-->
-
-
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>

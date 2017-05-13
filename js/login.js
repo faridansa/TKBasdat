@@ -10,7 +10,7 @@ $(document).ready(function() {
                 }
             if (found) {
                 sessionStorage.setItem("username", unInput);
-                window.location.href = "index.html";
+                window.location.href = "index.php";
                 return false;
             } else {
             var greetings = "<div class=\"col-md-4 col-md-offset-4\"><div class=\"alert alert-danger fade in\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button><p>Username atau password salah</p></div></div>";
@@ -18,7 +18,7 @@ $(document).ready(function() {
             }
         });
         } else {
-            window.location.href = "index.html";
+            window.location.href = "index.php";
         }
     });
 

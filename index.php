@@ -1,3 +1,17 @@
+<?php
+    session_start();
+
+    function connectDB(){
+        $conn = pg_connect("dbname=graceangelica user=postgres password=bocahtengil");
+        if($conn){
+            echo("Succeed Connecting to The Database");
+        }else {
+             echo("Error Connecting to The Database");
+        }
+
+        return $conn;
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
