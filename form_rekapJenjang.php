@@ -63,7 +63,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" xcontent="">
+  <meta name="description" content="">
   <meta name="author" content="">
   <title>Rekap By Jenjang | SIRIMA</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">

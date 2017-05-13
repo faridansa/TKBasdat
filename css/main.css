@@ -58,6 +58,10 @@
   }
 
   h1{
+<<<<<<< HEAD
+=======
+    font-size: 34px;
+>>>>>>> a9711eab6f792353444d762e6703e240af90ae2a
     color: #686868;
   }
 
@@ -503,7 +507,11 @@ ul.sub-menu {
   margin-top: 5px;
   border-bottom: 3px solid #2f9697;
   box-shadow: none;
+<<<<<<< HEAD
   padding: 10px;
+=======
+  padding: 0px;
+>>>>>>> a9711eab6f792353444d762e6703e240af90ae2a
 }
 
 .btn-submit:hover, 
@@ -700,6 +708,10 @@ ul.sub-menu {
 .title {
   color: #404040;
   font-weight: 300;
+<<<<<<< HEAD
+=======
+  font-size: 50px;
+>>>>>>> a9711eab6f792353444d762e6703e240af90ae2a
 }
 
 .single-features {
@@ -1142,7 +1154,11 @@ ul.elements li > i{
 
 .pagination li{
   display: inline-block;
+<<<<<<< HEAD
   margin: 0 10px;
+=======
+  margin: 0px;
+>>>>>>> a9711eab6f792353444d762e6703e240af90ae2a
 }
 
 .pagination li a{
@@ -1740,7 +1756,11 @@ Blog with right sidebar
   text-align: center;
   font-size: 0px;
   padding-top: 55px;
+<<<<<<< HEAD
   padding-bottom: 55px;
+=======
+  padding-bottom: 0px;
+>>>>>>> a9711eab6f792353444d762e6703e240af90ae2a
 }
 
 /*****************************
