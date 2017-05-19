@@ -111,43 +111,39 @@ $(document).ready(function() {
             <span class="icon-bar"></span>
           </button>
 
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="index.php">
             <img src="images/Universitas Inovasi-01.png" width="100px" alt="logo">
           </a>
 
         </div>
         <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li class="dropdown"><a href="#">Pages <i class="fa fa-angle-down"></i></a>
-              <ul role="menu" class="sub-menu">
-                <li><a href="riwayatdaftar.html">Riwayat Pendaftaran</a></li>
-                <li><a href="kartuujian.html">Kartu Ujian</a></li>
-                <li><a href="aboutus2.html">Kartu Ujian juga yey</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
+          <ul id = "ul-nav-bar" class="nav navbar-nav navbar-right">
+            <li class="active"><a href="index.php">Beranda</a></li>
+            <li><a href="index.php ">Tentang Kami</a></li> 
+            <?php 
+            if (isset($_SESSION['isUserLogin'])) {
+              echo "<li class='dropdown'> <a href='#'>Informasi SIRIMA <i class='fa fa-angle-down'></i></a> 
+              <ul role='menu' class='sub-menu'>
+              <li> <a href= 'link-buat-pendaftaran'>Buat Pendaftaran</a> </li>
+              <li> <a href= 'riwayatdaftar.html'>Riwayat Pendaftaran</a></li>
+              <li> <a href= 'kartuujian.html'>Kartu Ujian</a> </li>
+              <li> <a href= 'hasilseleksi.html'>Hasil Seleksi</a> </li>
               </ul>
-            </li>                    
-            <li class="dropdown"><a href="blog.html">Lihat Pendaftaran <i class="fa fa-angle-down"></i></a>
-              <ul role="menu" class="sub-menu">
-                <li><a href="blog.html">Rekap Pendaftaran Jenjang</a></li>
-                <li><a href="blog.html">Daftar Pelamar</a></li>
+              </li>
+
+              <li> <a href= '#' id= 'logout-btn'>Log Out</a> </li>";
+            } else if (isset($_SESSION['isAdminLogin'])) {
+              echo "<li class='dropdown'> <a href='#''>Laman Admin <i class='fa fa-angle-down'></i></a>
+              <ul role='menu' class='sub-menu'>
+              <li><a href= 'form_rekapJenjang.php'>Rekap Pendaftaran</a></li>
+              <li><a href= 'form_rekapProdi.php'>Daftar Pelamar</a></li>
               </ul>
-            </li>
-            <li class="dropdown"><a href="portfolio.html">About US <i class="fa fa-angle-down"></i></a>
-              <ul role="menu" class="sub-menu">
-                <li><a href="#footer">Contact</a></li>
-                <li><a href="contact2.html">Map</a></li>
-              </ul>
-            </li>                         
+              </li>
+
+              <li> <a href= '#' id= 'logout-btn'>Log Out</a> </li>";
+            }
+            ?>
           </ul>
-        </div>
-        <div class="search">
-          <form role="form">
-            <i class="fa fa-search"></i>
-            <div class="field-toggle">
-              <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-            </div>
-          </form>
         </div>
       </div>
     </div>

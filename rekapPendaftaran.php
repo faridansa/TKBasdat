@@ -142,25 +142,38 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <img src="images/Universitas Inovasi-01.png" width="100px" alt="logo">
                     </a>
                     
                 </div>
-                <div id="navbar" class="collapse navbar-collapse">                  
+                 <div id="navbar" class="collapse navbar-collapse">
                     <ul id = "ul-nav-bar" class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.html">Beranda</a></li>
-                        <li><a href="shortcodes.html ">Tentang Kami</a></li> 
+                        <li class="active"><a href="index.php">Beranda</a></li>
+                        <?php 
+                        if (isset($_SESSION['isUserLogin'])) {
+                            echo "<li class='dropdown'> <a href='#'>Informasi SIRIMA <i class='fa fa-angle-down'></i></a> 
+                                <ul role='menu' class='sub-menu'>
+                                    <li> <a href= 'link-buat-pendaftaran'>Buat Pendaftaran</a> </li>
+                                    <li> <a href= 'riwayatdaftar.html'>Riwayat Pendaftaran</a></li>
+                                    <li> <a href= 'kartuujian.html'>Kartu Ujian</a> </li>
+                                    <li> <a href= 'hasilseleksi.html'>Hasil Seleksi</a> </li>
+                                </ul>
+                            </li>
 
+                            <li> <a href= '#' id= 'logout-btn'>Log Out</a> </li>";
+                        } else if (isset($_SESSION['isAdminLogin'])) {
+                            echo "<li class='dropdown'> <a href='#''>Laman Admin <i class='fa fa-angle-down'></i></a>
+                                    <ul role='menu' class='sub-menu'>
+                                        <li><a href= 'form_rekapJenjang.php'>Rekap Pendaftaran</a></li>
+                                        <li><a href= 'form_rekapProdi.php'>Daftar Pelamar</a></li>
+                                    </ul>
+                                 </li>
+
+                            <li> <a href= '#' id= 'logout-btn'>Log Out</a> </li>";
+                        }
+                    ?>
                     </ul>
-                </div>
-                <div class="search">
-                    <form role="form">
-                        <i class="fa fa-search"></i>
-                        <div class="field-toggle">
-                            <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -181,28 +194,12 @@
 </section>
 <!--/#page-breadcrumb-->
 
-<section id="company-information" class="padding-top wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
+<section id="company-information" class="padding-bottom wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
     <div class="container">
         <?php
           displayTable();
         ?>
     </div>
-    <div class="row">
-        <div class="blog-pagination">
-            <ul class="pagination">
-              <li><a href="#">left</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">6</a></li>
-              <li><a href="#">7</a></li>
-              <li><a href="#">8</a></li>
-              <li><a href="#">9</a></li>
-              <li><a href="#">right</a></li>
-          </ul>
-      </div>
   </div>
 </section>
 
@@ -251,6 +248,8 @@
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/homejs.js"></script>    
+    <script type="text/javascript" src="js/myTable.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 </body>
 </html>
