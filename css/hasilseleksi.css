@@ -1,0 +1,37 @@
+#LogoUIHS {
+  width: calc(100% - 42rem);
+}
+
+body {
+	margin: auto;
+	padding: auto;
+}
+
+.input-id {
+	width: calc(100% - 40rem);
+	margin: auto;
+}
+
+.input-id .row{
+	margin: auto;
+	width: calc(100% - 60rem);
+}
+
+#img-navbar {
+	width: 100% !important;
+	height: 20rem !important;
+	display: flex !important;
+	align-items: center !important;
+	align-content: center !important;
+	background-image: url(../images/home/tour-bg-1.png);
+
+}
+
+.title {
+	margin: auto;
+
+}
+
+#logo {
+	z-index: -1;
+}
