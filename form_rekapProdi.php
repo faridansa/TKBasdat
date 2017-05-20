@@ -2,7 +2,10 @@
   session_start();
   function funcCheckLogin() {
     $conn = connect();
-    if (!isset($_SESSION['isLogin']) && !isset($_SESSION['isAdminLogin'])) {
+    if(!isset($_SESSION['isAdminLogin'])) {
+      header("Location: index.php");    
+    } 
+    if (!isset($_SESSION['isLogin'])) {
       header("Location: login.php");
     }
     pg_close($conn);

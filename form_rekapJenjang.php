@@ -1,15 +1,6 @@
 <?php
   session_start();
-  function funcCheckLogin() {
-    $conn = connect();
-    if (!isset($_SESSION['isLogin']) && !isset($_SESSION['isAdminLogin'])) {
-      header("Location: login.php");
-    }
-    pg_close($conn);
-  }
-
-  funcCheckLogin();
-
+  
   function connect() {
     $conn = "host = localhost port = 5432 dbname = noviantialiasih user = postgres password = Apakekgitu1";
           // Create connection
@@ -21,6 +12,21 @@
     }
     return $db;
   }
+  function funcCheckLogin() {
+    $conn = connect();
+    if(!isset($_SESSION['isAdminLogin'])) {
+      header("Location: index.php");    
+    } 
+    if (!isset($_SESSION['isLogin'])) {
+      header("Location: login.php");
+    }
+    pg_close($conn);
+  }
+
+  funcCheckLogin();
+  // if(isset($_SESSION['isAdminLogin'])) {
+  //   echo $_SESSION['isAdminLogin'];
+  // }
 
   function selectOptionQuery($type) {
     $db = connect();

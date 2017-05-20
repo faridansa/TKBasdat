@@ -184,6 +184,8 @@
                     $_SESSION['isUserLogin'] = 'true';
                     $_SESSION['isLogin'] = 'true';
                     $_SESSION['isDaftar'] = 'true';
+                    unset($_SESSION['isAdminLogin']);
+
                     header("Location: index.php");
                 }
 

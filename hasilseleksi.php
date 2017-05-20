@@ -1,7 +1,10 @@
 <?php
     session_start();
     function funcCheckLogin() {
-    if (!isset($_SESSION['isLogin']) && !isset($_SESSION['isUserLogin'])) {
+    if(!isset($_SESSION['isUserLogin'])) {
+      header("Location: index.php");    
+    } 
+    if (!isset($_SESSION['isLogin'])) {
       header("Location: login.php");
     }
   }

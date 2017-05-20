@@ -39,6 +39,7 @@
                 if($d['username'] == $username && $d['password'] == $password) {
                     $_SESSION['isAdminLogin'] = 'true';
                     $_SESSION['isLogin'] = 'true';
+                    
                     header("Location: index.php");
                     $login = true;
                 }
