@@ -15,7 +15,7 @@
 
             if (isset($_POST['username'])) {
                 $username = $_POST['username'];
-                $regex1 = "/[0-9a-zA-Z\.]{2,20}/";
+                $regex1 = "/^[0-9a-zA-Z.]+$/";
                 if(!preg_match($regex1, $username)){
                     $error1 = "Username tidak sesuai ketentuan";
                 } 
@@ -101,6 +101,8 @@
 
             if (isset($error1)) {
                 $_SESSION['error1'] = $error1;
+                // echo $_SESSION['error1'];
+                // echo $error1;
             }
             if (isset($error2)) {
                 $_SESSION['error2'] = $error2;
