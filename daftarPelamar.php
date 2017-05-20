@@ -95,9 +95,11 @@
     pg_close($db);
   }  
 
-  function getProdi(){
+  function getDetail(){
     $prodi = $_POST['prodi'];
-    echo $prodi;
+    $periode = explode(" - ",$_POST['periode']);
+    $tahun = $periode[1];
+    echo 'Prodi : '.$prodi."\n<br>Periode : ".$tahun;
   }
 ?>        
 
@@ -203,7 +205,7 @@
            <div class="container">
             <div class="col-sm-12 text-center bottom-separator">
                 <h1>Daftar Pelamar Diterima</h1>
-                <p>Prodi : <?php getProdi(); ?></p>
+                <p><?php getDetail(); ?></p>
             </div>
             <!-- <img src="images/home/under.png" class="img-responsive inline" alt=""> -->
         </div>

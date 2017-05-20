@@ -81,9 +81,11 @@
     pg_close($db);
     }
 
-    function getJenjang(){
+    function getDetail(){
         $jenjang = $_POST['jenjang'];
-        echo $jenjang;
+        $periode = explode(" - ",$_POST['periode']);
+        $tahun = $periode[1];
+        echo $jenjang.' tahun periode '.$tahun;
     }
 ?> 
 
@@ -185,7 +187,7 @@
          <div class="container">
                 <div class="col-sm-12 text-center bottom-separator">
                     <h1>Rekap Pendaftaran</h1>
-                    <p>Jenjang : <?php getJenjang(); ?></p>
+                    <p>Jenjang : <?php getDetail(); ?></p>
                 </div>
              <!-- <img src="images/home/under.png" class="img-responsive inline" alt=""> -->
         </div>
