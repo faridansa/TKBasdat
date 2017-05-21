@@ -1,17 +1,17 @@
 <?php
     session_start();
-
-    function connectDB(){
-        $conn = pg_connect("dbname=graceangelica user=postgres password=bocahtengil");
-        if($conn){
-            echo("Succeed Connecting to The Database");
-        }else {
-             echo("Error Connecting to The Database");
+        function connectDB() {
+            $conn = pg_connect("dbname=graceangelica user=postgres password=bocahtengil");
+            //$conn = pg_connect("host = localhost port = 5433 dbname = kelompok_a04 user = postgres password = h4h4h1h1");
+            
+            if (!$conn) {
+                $res1 = pg_get_result($conn);
+                die("Connection failed: " + pg_result_error($res1));
+            }
+            return $conn;
         }
-
-        return $conn;
-    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,8 +36,23 @@
 </head>
 
 <body>
-    <!-- <div id="for-alert" align="center">
-    </div> -->
+    <div id="for-alert" align="center">
+    <?php 
+        if (isset($_SESSION['isAdminLogin'])) {
+        echo "<div><div class='alert alert-info fade in'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>
+                    <p>Selamat datang, Admin!</p>
+                </div>
+            </div>";
+        } else if (isset($_SESSION['isUserLogin'])) {
+        echo "<div><div class='alert alert-info fade in'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>
+                    <p>Selamat datang, ".$_SESSION['nama']."!</p>
+                </div>
+            </div>";
+        }
+     ?>
+    </div>
     <header id="header">      
         <div class="navbar navbar-inverse" role="banner">
             <div class="container">
@@ -48,14 +63,37 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <img src="images/Universitas Inovasi-01.png" id="LogoUI" alt="logo">
                     </a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul id = "ul-nav-bar" class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="index.html">Beranda</a></li>
-                        <li><a href="shortcodes.html ">Tentang Kami</a></li> 
+                        <li class="active"><a href="index.php">Beranda</a></li>
+                        <li><a href="index.php ">Tentang Kami</a></li> 
+                     <?php 
+                        if (isset($_SESSION['isUserLogin'])) {
+                            echo "<li class='dropdown'> <a href='#'>Informasi SIRIMA <i class='fa fa-angle-down'></i></a> 
+                                <ul role='menu' class='sub-menu'>
+                                    <li> <a href= 'semas1.php'>Buat Pendaftaran</a> </li>
+                                    <li> <a href= 'riwayatdaftar.php'>Riwayat Pendaftaran</a></li>
+                                    <li> <a href= 'kartuujian.php'>Kartu Ujian</a> </li>
+                                    <li> <a href= 'hasilseleksi.php'>Hasil Seleksi</a> </li>
+                                </ul>
+                            </li>
+
+                            <li> <a href= '#' id= 'logout-btn'>Log Out</a> </li>";
+                        } else if (isset($_SESSION['isAdminLogin'])) {
+                            echo "<li class='dropdown'> <a href='#''>Laman Admin <i class='fa fa-angle-down'></i></a>
+                                    <ul role='menu' class='sub-menu'>
+                                        <li><a href= 'form_rekapJenjang.php'>Rekap Pendaftaran</a></li>
+                                        <li><a href= 'form_rekapProdi.php'>Daftar Pelamar</a></li>
+                                    </ul>
+                                 </li>
+
+                            <li> <a href= '#' id= 'logout-btn'>Log Out</a> </li>";
+                        }
+                    ?>
                     </ul>
                 </div>
             </div>
@@ -73,8 +111,12 @@
                       <h1>Selamat Datang di SIRIMA UI</h1>
                         <p>Sistem Informasi Penerimaan Mahasiswa (SIRIMA) merupakan sistem pendaftaran online mahasiswa baru yang diselenggarakan oleh Universitas Inovasi (UI). Tersedia 2 jalur pendaftaran, yakni jalur UUI (Undangan UI) yang diperuntukkan untuk jenjang S1, serta SEMAS UI (Seleksi Masuk UI) yang diperuntukkan untuk jenjang S1, S2, dan S3.</p>
                         <div id= "login-reg-nav"> 
-                            <a href="login.html" class="btn btn-common">MASUK</a>
-                            <a href="register.html" class="btn btn-common">DAFTAR</a> 
+                        <?php 
+                             if (!isset($_SESSION['isLogin'])) {
+                                echo "<a href='login.php' class='btn btn-common'>MASUK</a>
+                                <a href='register.php' class='btn btn-common'>DAFTAR</a>";
+                            } 
+                        ?> 
                         </div>  
                     </div>
                     <img src="images/my-icons-collection/png/001-university.png" class="slider-house" alt="slider image">
@@ -165,7 +207,6 @@
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/homejs.js"></script> 
-
+    <script type="text/javascript" src="js/logout.js"></script>    
 </body>
 </html>
