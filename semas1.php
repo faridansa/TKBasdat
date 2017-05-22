@@ -1,15 +1,19 @@
 <?php
+    //session start to login
     session_start();
-    function funcCheckLogin() {
-    if(!isset($_SESSION['isUserLogin'])) {
-      header("Location: index.php");    
-    } 
-    if (!isset($_SESSION['isLogin'])) {
-      header("Location: login.php");
+    if(!isset($_SESSION["userlogin"])){
+        header("Location: ../login.php");
     }
-  }
-  funcCheckLogin();
+
+    //attempt connection
+    $dbh = pg_connect("host=localhost dbname=datafirda user=postgres");
+    if(!$dbh){
+        die("Error in connection:" .pg_last_error());
+    }
+
 ?>
+
+<!--HTML-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +41,6 @@
       }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -48,10 +51,6 @@
 
     <!--Image-->
     <link rel="shortcut icon" href="../images/UILogo.png">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head>
 <!--/head-->
 
@@ -75,29 +74,23 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul id="ul-nav-bar" class="nav navbar-nav navbar-right">
-                        <li><a href="index.php">Beranda</a></li>
-                        <li><a href="index.php">Tentang Kami</a></li>  
-                        <?php 
-                          if (isset($_SESSION['isUserLogin'])) {
-                            echo "<li class='dropdown'> <a href='#'>Informasi SIRIMA <i class='fa fa-angle-down'></i></a> 
+                        <li><a href="../index.html">BERANDA</a></li>
+                        <?php
+                        if(isset($_SESSION['isUserLogin'])){
+                            echo
+                        "<li class="dropdown"><a href='#''>Informasi SIRIMA <i class='fa fa-angle-down'></i></a>
                             <ul role='menu' class='sub-menu'>
-                            <li> <a href= 'link-buat-pendaftaran'>Buat Pendaftaran</a> </li>
-                            <li> <a href= 'riwayatdaftar.php'>Riwayat Pendaftaran</a></li>
-                            <li> <a href= 'kartuujian.php'>Kartu Ujian</a> </li>
-                            <li> <a href= 'hasilseleksi.php'>Hasil Seleksi</a> </li>
+                                <li class='active'><a href='semas1.php'>Buat Pendaftaran
+                                </a></li>
+                                <li><a href='../lihat/riwayatdaftar.php'>Riwayat Pendaftaran
+                                </a></li>
+                                <li><a href='../lihat/kartuujian.php'>Kartu Ujian
+                                </a></li>
+                                <li><a href='../lihat/hasilseleksi.php'>Hasil Seleksi
+                                </a></li>
                             </ul>
-                            </li>
-                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
-                          } else if (isset($_SESSION['isAdminLogin'])) {
-                            echo "<li class='dropdown'> <a href='#''>Laman Admin <i class='fa fa-angle-down'></i></a>
-                            <ul role='menu' class='sub-menu'>
-                            <li><a href= 'form_rekapJenjang.php'>Rekap Pendaftaran</a></li>
-                            <li><a href= 'form_rekapProdi.php'>Daftar Pelamar</a></li>
-                            </ul>
-                            </li>
-                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
-                          }
-                        ?>              
+                        </li>    
+                        <li><a href='../logout.php'>LOGOUT</a></li> "}?>                 
                     </ul>
                 </div>
             </div>
@@ -119,15 +112,20 @@
                     <label id="jenissma">Jenjang</label>
                     <select class="form-control" id="jenjang" onchange="javascript:handleSelect(this)">
                         <option value="" disabled selected>Pilih Jenjang</option>
-                        <option value="semas2.php">Sarjana S1</option><!--dibenerin pas php-->
+                        <option value="semas2.php">Sarjana s1</option>
                         <option>Pascasarjana S2</option>
                         <option>Pascasarjana S3</option>
                     </select>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Simpan</button>
                 </div>
             </form>
         </div>
+
         <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>
     </section>
+    <!--Content-->
+
+    <!--Footer-->
     <div class="row">
         <div class="col-sm-12">
             <div class="copyright-text text-center">
@@ -135,44 +133,7 @@
             </div>
         </div>
     </div>
-    <footer id="footer">
-          <div class="container">
-              <div class="row">
-                  <div class="col-sm-12  bottom-separator">
-                      <img src="images/home/under.png" class="img-responsive" align="center" alt="">
-                  </div>
-                  <div class="col-sm-2 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="300ms">
-                  </div>
-                  <div>
-                      <div class="col-sm-4 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms" align="center">
-                          <h2>Contacts</h2>
-                          <address>
-                              E-mail: <a href="mailto:someone@example.com">sirima@ui.ac.id</a> <br> 
-                              Phone: +1 (123) 456 7890 <br> 
-                              Fax: +1 (123) 456 7891 <br> 
-                          </address>
-                      </div>
-                      <div class="col-sm-4 wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
-                          <h2>Address</h2>
-                          <address>
-                              Universitas Inovasi, <br> 
-                              Jalan Margonda Raya, <br> 
-                              Depok, Indonesia <br> 
-                              <br>
-                          </address>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-sm-12">
-                  <div class="copyright-text text-center">
-                      <p>&copy; Universitas Inovasi 2017. All Rights Reserved.</p>
-                  </div>
-              </div>
-          </div>
-      </footer>
-      <!--/#footer-->
-    
+    <!--Footer--> 
 </body>
 </html>
+<!--/HTML-->

@@ -1,3 +1,131 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['isUserLogin'])) {
+      header("Location: login.php");    
+    } 
+
+    function connectDB() {
+        $conn = pg_connect("host=localhost port=5432 dbname=a204 user=postgres");
+        
+        if (!$conn) {
+            $err = pg_get_result($conn);
+            die("Connection failed: " + pg_result_error($err));
+        }
+        return $conn;
+    }
+       
+    //constraint form
+    function register(){
+        $conn = connectDB();
+
+        if(isset($_POST['asalsekolah'])){
+            $asalsekolah = $_POST['asalsekolah'];
+        }else{
+            $sekolahErr = "Asal sekolah belum diisi"; 
+        }
+
+        if(isset($_POST['jenissma'])){
+            $jenissma = $_POST['jenissma'];
+        }else{
+            $jenisErr = "Jenis SMA belum dipilih";
+        }
+
+        if(isset($_POST['alamatSekolah'])){
+            $alamatSekolah = $_POST['alamatSekolah'];
+        }else{
+            $alamatErr = "Alamat Sekolah belum diisi";
+        }
+
+        if(isset($_POST['nisn'])){
+            $nisn = $_POST['nisn'];
+            $regex1 = "/[\d]{10}/";
+            if(!preg_match($regex1, $nisn)){
+                $nisnErr = "Nomor NISN tidak sesuai";
+            }
+        }else{
+            $nisnErr = "Nomor NISN belum diisi"
+        }
+
+        if(isset($_POST['datelulus'])){
+            $datelulus = $_POST['datelulus'];
+        }else{
+            $dateErr = "Tanggal lulus belum pilih";
+        }
+
+        if(isset($_POST['nilaiuan'])){
+            $nilaiuan = $_POST['nilaiuan'];
+            $regex2 = "[0-9]+(\.[0-9][0-9]?)?";
+            if(!preg_match($regex2, $nilaiuan)){
+                $uanErr = "Nilai tidak sesuai. 2 digit dibelakang koma";
+            }
+        }else{
+            $uanErr = "Nilai UAN belum diisi";
+        }
+
+        if(isset($_POST['prodi1'])){
+            $prodi1 = $_POST['prodi1'];
+        }else{
+            $prodi1Err = "Prodi belum dipilih";
+        }
+
+        if(isset($_POST['prodi2'])){
+            $prodi1 = $_POST['prodi1'];
+            $prodi2 = $_POST['prodi2'];
+            $prodi3 = $_POST['prodi3'];
+            if($prodi1 == $prodi2 || $prodi2 == $prodi3)){
+                $prodi2Err = "Prodi " $prodi2 "sudah dipilih";
+            }
+        }
+        
+        if(isset($_POST['prodi3'])){
+            $prodi1 = $_POST['prodi1'];
+            $prodi2 = $_POST['prodi2'];
+            $prodi3 = $_POST['prodi3'];
+            if($prodi1 == $prodi3 || $prodi2 == $prodi3)){
+                $prodi3Err = "Prodi " $prodi3 "sudah dipilih";
+            }
+        }
+
+        //calling all error
+        if(isset($sekolahErr)){
+            $_SESSION['sekolahErr'] = $sekolahErr;
+        }
+        if(isset($jenisErr)){
+            $_SESSION['jenisErr'] = $jenisErr;
+        }
+        if(isset($alamatErr)){
+            $_SESSION['alamatErr'] = $alamatErr;
+        }
+        if(isset($nisnErr)){
+            $_SESSION['nisnErr'] = $nisnErr;
+        }
+        if(isset($dateErr)){
+            $_SESSION['dateErr'] = $dateErr;
+        }
+        if(isset($uanErr)){
+            $_SESSION['uanErr'] = $uanErr;
+        }
+        if(isset($pro)){
+            $_SESSION['dateErr'] = $dateErr;
+        }
+        
+
+        if($conn && !isset($sekolahErr) && !isset($jenisErr) && !isset($alamatErr) && !isset($nisnErr) && !isset($dateErr) && !isset($uanErr) && !isset($prodi1Err) && !isset($prodi2Err) && !isset($prodi3Err)){
+
+            set 
+        }
+    }
+
+    //sql
+    $set = "SET search_path to SIRIMA"
+    $getuser = "SELECT username FROM PELAMAR"
+    $sql1 = "SELECT id FROM PENDAFTARAN ORDER BY id_pendaftaran DESC LIMIT 1;";
+    $sql2 = "INSERT INTO PENDAFTARAN (id, status_lulus, status_verifikasi, npm, pelamar, nomor_periode, tahun_periode) VALUES ($sql1+1, null, null);";
+    $sql3 = "INSERT INTO PENDAFTARAN_SEMAS(id_pendaftaran, status_hadir, nilai_ujian, no_kartu_ujian, lokasi_kota, lokasi_tempat) VALUES ($sql1, null, null, null, $kotaujian, $tempatujian);";
+    $sql4 = "INSERT INTO PENDAFTARAN_SEMAS_SARJANA(id_pendaftaran, asal_sekolah, jenis_sma, alamat_sekolah, nisn, tgl_lulus, nilai_uan) VALUES ($sql1, $asalsekolah, $jenissma, $alamatSekolah, $nisn, $datelulus, $nilaiuan);";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,29 +148,16 @@
     <link href="css/responsive.css" rel="stylesheet">
 
     <!--script-->
-    <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker2').datetimepicker();
-            });
-        </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/lightbox.min.js"></script>
-    <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-    <![endif]-->     
+ 
     <link rel="shortcut icon" href="../images/UILogo.png">  
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
 </head><!--/head-->
 
 <body>
@@ -50,6 +165,7 @@
         <div class="navbar navbar-inverse" role="banner">
             <div class="container">
                 <div class="navbar-header">
+
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -57,35 +173,29 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <h1><img src="images/uikecil.png" id="LogoUI" alt="logo"></h1>
                     </a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul id="ul-nav-bar" class="nav navbar-nav navbar-right">
-                        <li><a href="index.php">Beranda</a></li>
-                        <li><a href="index.php">Tentang Kami</a></li>   
-                        <?php 
-                          if (isset($_SESSION['isUserLogin'])) {
-                            echo "<li class='dropdown'> <a href='#'>Informasi SIRIMA <i class='fa fa-angle-down'></i></a> 
+                        <li><a href="../index.html">Beranda</a></li>
+                        <?php
+                        if(isset($_SESSION['isUserLogin'])){
+                            echo
+                        "<li class="dropdown"><a href='#''>Informasi SIRIMA <i class='fa fa-angle-down'></i></a>
                             <ul role='menu' class='sub-menu'>
-                            <li> <a href= 'semas1.php'>Buat Pendaftaran</a> </li>
-                            <li> <a href= 'riwayatdaftar.php'>Riwayat Pendaftaran</a></li>
-                            <li> <a href= 'kartuujian.php'>Kartu Ujian</a> </li>
-                            <li> <a href= 'hasilseleksi.php'>Hasil Seleksi</a> </li>
+                                <li class='active'><a href='semas1.php'>Buat Pendaftaran
+                                </a></li>
+                                <li><a href='../lihat/riwayatdaftar.php'>Riwayat Pendaftaran
+                                </a></li>
+                                <li><a href='../lihat/kartuujian.php'>Kartu Ujian
+                                </a></li>
+                                <li><a href='../lihat/hasilseleksi.php'>Hasil Seleksi
+                                </a></li>
                             </ul>
-                            </li>
-                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
-                          } else if (isset($_SESSION['isAdminLogin'])) {
-                            echo "<li class='dropdown'> <a href='#''>Laman Admin <i class='fa fa-angle-down'></i></a>
-                            <ul role='menu' class='sub-menu'>
-                            <li><a href= 'form_rekapJenjang.php'>Rekap Pendaftaran</a></li>
-                            <li><a href= 'form_rekapProdi.php'>Daftar Pelamar</a></li>
-                            </ul>
-                            </li>
-                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
-                          }
-                        ?>              
+                        </li>    
+                        <li><a href='../logout.php'>LOGOUT</a></li> "}?>             
                     </ul>
                 </div>
             </div>
@@ -96,7 +206,7 @@
     <section id="home-slider">
         <div class="container">              
           <ol class="breadcrumb">
-            <li><a href="semas1.html">Pilih Jenjang</a></li>
+            <li><a href="semas1.php">Pilih Jenjang</a></li>
             <li class="active">Form Pendaftaran</li>        
           </ol>
         </div>
@@ -107,6 +217,12 @@
                 <div class="input-field col s8">
                     <label>Asal Sekolah</label>
                     <input type="text" class="validate" required="required">
+                    <?php
+                        if(isset($_SESSION['sekolahErr'])){
+                            echo "<div style = 'color:red' id=sekolahErr>".$_SESSION['sekolahErr']."</div>";
+                            unset($_SESSION['sekolahErr']);
+                        }
+                    ?>
                 </div>
                 <div class="form-group">
                     <label id="jenissma">Jenis SMA</label>
@@ -116,24 +232,54 @@
                         <option>IPS</option>
                         <option>Bahasa</option>
                     </select>
+                    <?php
+                        if(isset($_SESSION['jenisErr'])){
+                            echo "<div style = 'color:red' id=jenisErr>".$_SESSION['jenisErr']."</div>";
+                            unset($_SESSION['jenisErr']);
+                        }
+                    ?>
                 </div>
                 <div class="input-field col s8">
                     <label>Alamat Sekolah</label>
-                    <input type="text" class="validate" required="required">
+                    <input type="text" class="validate" required="required" value="<?php echo $alamatSekolah;?>">
+                    <?php
+                        if(isset($_SESSION['alamatErra'])){
+                            echo "<div style = 'color:red' id=alamatErr>".$_SESSION['alamatErr']."</div>";
+                            unset($_SESSION['alamatErr']);
+                        }
+                    ?>
                 </div>
                 <div class="input-field col s8">
                     <label>NISN</label>
-                    <input type="text" class="validate" required="required">
+                    <input type="text" class="validate" required="required" value="<?php echo $nisn;?>">
+                    <?php
+                        if(isset($_SESSION['nisnErr'])){
+                            echo "<div style = 'color:red' id=nisnErr>".$_SESSION['nisnErr']."</div>";
+                            unset($_SESSION['nisnErr']);
+                        }
+                    ?>
                 </div>
                 <div class="input-field col s8">
                     <label>Tanggal Lulus</label>
                     <div id="datetimepicker" class="input-append">
-                        <input type="date" required="required"></input>
+                        <input type="date" required="required" value="<?php echo $datelulus;?>"></input>
+                        <?php
+                        if(isset($_SESSION['dateErr'])){
+                            echo "<div style = 'color:red' id=dateErr>".$_SESSION['dateErr']."</div>";
+                            unset($_SESSION['dateErr']);
+                        }
+                    ?>
                     </div>
                 </div>
                 <div class="input-field col s8">
                     <label>Nilai UAN</label>
-                    <input type="text" class="validate" required="required">
+                    <input type="text" class="validate" required="required" value="<?php echo $nilaiuan?>">
+                    <?php
+                        if(isset($_SESSION['uanErr'])){
+                            echo "<div style = 'color:red' id=uanErr>".$_SESSION['uanErr']."</div>";
+                            unset($_SESSION['uanErr']);
+                        }
+                    ?>
                 </div>
                 <div class="form-group">
                     <label id="prodi1">Prodi Pilihan 1</label>
@@ -162,7 +308,7 @@
                         <option value="" disabled selected>Pilih Prodi</option>
                         <option disabled>Kelas Reguler</option>
                         <option>Kedokteran</option>
-                        <option>Matermatika</option>
+                        <option>Matematika</option>
                         <option>Teknik Sipil</option>
                         <option>Ilmu Komputer</option>
                         <option disabled>Kelas Paralel</option>

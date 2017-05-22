@@ -1,14 +1,20 @@
 <?php
     session_start();
-    function funcCheckLogin() {
     if(!isset($_SESSION['isUserLogin'])) {
-      header("Location: index.php");    
+      header("Location: login.php");    
     } 
-    if (!isset($_SESSION['isLogin'])) {
-      header("Location: login.php");
+
+    function connectDB() {
+        $conn = pg_connect("host=localhost port=5432 dbname=a204 user=postgres");
+        
+        if (!$conn) {
+            $err = pg_get_result($conn);
+            die("Connection failed: " + pg_result_error($err));
+        }
+        return $conn;
     }
-  }
-  funcCheckLogin();
+
+    $sql = "SELECT "
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,29 +77,23 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul id="ul-nav-bar" class="nav navbar-nav navbar-right">
-                        <li><a href="index.php">Beranda</a></li>
-                        <li><a href="index.php">Tentang Kami</a></li>  
-                        <?php 
-                          if (isset($_SESSION['isUserLogin'])) {
-                            echo "<li class='dropdown'> <a href='#'>Informasi SIRIMA <i class='fa fa-angle-down'></i></a> 
+                        <li><a href="../index.html">BERANDA</a></li>
+                        <?php
+                        if(isset($_SESSION['isUserLogin'])){
+                            echo
+                        "<li class="dropdown"><a href='#''>Informasi SIRIMA <i class='fa fa-angle-down'></i></a>
                             <ul role='menu' class='sub-menu'>
-                            <li> <a href= 'semas1.php'>Buat Pendaftaran</a> </li>
-                            <li> <a href= 'riwayatdaftar.php'>Riwayat Pendaftaran</a></li>
-                            <li> <a href= 'kartuujian.php'>Kartu Ujian</a> </li>
-                            <li> <a href= 'hasilseleksi.php'>Hasil Seleksi</a> </li>
+                                <li class='active'><a href='semas1.php'>Buat Pendaftaran
+                                </a></li>
+                                <li><a href='../lihat/riwayatdaftar.php'>Riwayat Pendaftaran
+                                </a></li>
+                                <li><a href='../lihat/kartuujian.php'>Kartu Ujian
+                                </a></li>
+                                <li><a href='../lihat/hasilseleksi.php'>Hasil Seleksi
+                                </a></li>
                             </ul>
-                            </li>
-                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
-                          } else if (isset($_SESSION['isAdminLogin'])) {
-                            echo "<li class='dropdown'> <a href='#''>Laman Admin <i class='fa fa-angle-down'></i></a>
-                            <ul role='menu' class='sub-menu'>
-                            <li><a href= 'form_rekapJenjang.php'>Rekap Pendaftaran</a></li>
-                            <li><a href= 'form_rekapProdi.php'>Daftar Pelamar</a></li>
-                            </ul>
-                            </li>
-                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
-                          }
-                        ?>            
+                        </li>    
+                        <li><a href='../logout.php'>LOGOUT</a></li> "}?>           
                     </ul>
                 </div>
             </div>
@@ -112,30 +112,31 @@
 
         <div class="container">
             <h1>Form Pembayaran Semas Sarjana</h1>
-            <table class="table table-striped">
+            <?php if(isset($_SESSION['isUserLogin'])){
+             echo "<table class="table table-striped">
                 <tbody>
                     <tr>
                         <td>Tipe Pembayaran</td>
-                        <td>: UJIAN SEMAS SARJANA UNIVERSITAS INOVASI</td>
+                        <td>: </td>
                     </tr>
                     <tr>
                         <td>ID Pendaftaran</td>
-                        <td>: 201</td>
+                        <td>: </td>
                     </tr>
                     <tr>
                         <td>Nama Pendaftar</td>
-                        <td>: Grace Angelica</td>
+                        <td>:</td>
                     </tr>
                     <tr>
                         <td>Jumlah Pembayaran</td>
-                        <td>: Rp.500.000,-</td>
+                        <td>: </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td><button class="btn waves-effect waves-light" type="submit" name="action"><a href="semas4.html">Bayar</a></button></td>
                     </tr>
                 </tbody>
-            </table>
+            </table>"}?>
         </div>
 
         <div class="preloader"><i class="fa fa-sun-o fa-spin"></i></div>

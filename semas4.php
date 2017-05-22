@@ -1,14 +1,18 @@
 <?php
     session_start();
-    function funcCheckLogin() {
     if(!isset($_SESSION['isUserLogin'])) {
-      header("Location: index.php");    
+      header("Location: login.php");    
     } 
-    if (!isset($_SESSION['isLogin'])) {
-      header("Location: login.php");
+
+    function connectDB() {
+        $conn = pg_connect("host=localhost port=5432 dbname=a204 user=postgres");
+        
+        if (!$conn) {
+            $err = pg_get_result($conn);
+            die("Connection failed: " + pg_result_error($err));
+        }
+        return $conn;
     }
-  }
-  funcCheckLogin();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,38 +75,24 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul id="ul-nav-bar" class="nav navbar-nav navbar-right">
-                        <li><a href="index.php">Beranda</a></li>
-                        <li><a href="index.php">Tentang Kami</a></li>  
-                        <?php 
-                          if (isset($_SESSION['isUserLogin'])) {
-                            echo "<li class='dropdown'> <a href='#'>Informasi SIRIMA <i class='fa fa-angle-down'></i></a> 
+                        <li><a href="../index.html">BERANDA</a></li>
+                        <?php
+                        if(isset($_SESSION['isUserLogin'])){
+                            echo
+                        "<li class="dropdown"><a href='#''>Informasi SIRIMA <i class='fa fa-angle-down'></i></a>
                             <ul role='menu' class='sub-menu'>
-                            <li> <a href= 'semas1.php'>Buat Pendaftaran</a> </li>
-                            <li> <a href= 'riwayatdaftar.php'>Riwayat Pendaftaran</a></li>
-                            <li> <a href= 'kartuujian.php'>Kartu Ujian</a> </li>
-                            <li> <a href= 'hasilseleksi.php'>Hasil Seleksi</a> </li>
+                                <li class='active'><a href='semas1.php'>Buat Pendaftaran
+                                </a></li>
+                                <li><a href='../lihat/riwayatdaftar.php'>Riwayat Pendaftaran
+                                </a></li>
+                                <li><a href='../lihat/kartuujian.php'>Kartu Ujian
+                                </a></li>
+                                <li><a href='../lihat/hasilseleksi.php'>Hasil Seleksi
+                                </a></li>
                             </ul>
-                            </li>
-                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
-                          } else if (isset($_SESSION['isAdminLogin'])) {
-                            echo "<li class='dropdown'> <a href='#''>Laman Admin <i class='fa fa-angle-down'></i></a>
-                            <ul role='menu' class='sub-menu'>
-                            <li><a href= 'form_rekapJenjang.php'>Rekap Pendaftaran</a></li>
-                            <li><a href= 'form_rekapProdi.php'>Daftar Pelamar</a></li>
-                            </ul>
-                            </li>
-                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
-                          }
-                        ?>             
+                        </li>    
+                        <li><a href='../logout.php'>LOGOUT</a></li> "}?>               
                     </ul>
-                </div>
-                <div class="search">
-                    <form role="form">
-                        <i class="fa fa-search"></i>
-                        <div class="field-toggle">
-                            <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -112,9 +102,9 @@
     <section id="home-slider">
         <div class="container">
           <ol class="breadcrumb">
-            <li><a href="semas1.php">Pilih Jenjang</a></li>
-            <li><a href="semas2Func.php">Form Pendaftaran</a></li>        
-            <li><a href="semas3.php">Form Pembayaran</a></li>
+            <li><a href="semas1.html">Pilih Jenjang</a></li>
+            <li><a href="semas2.html">Form Pendaftaran</a></li>        
+            <li><a href="semas3.html">Form Pembayaran</a></li>
             <li class="active">Bukti Pembayaran</li>
           </ol>
         </div>
