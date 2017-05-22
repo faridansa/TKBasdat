@@ -1,8 +1,7 @@
 <?php
     session_start();
         function connectDB() {
-            $conn = pg_connect("dbname=graceangelica user=postgres password=bocahtengil");
-            //$conn = pg_connect("host = localhost port = 5433 dbname = kelompok_a04 user = postgres password = h4h4h1h1");
+            $conn = pg_connect("host=localhost port=5432 dbname=noviantialiasih user=postgres password=Apakekgitu1");
             
             if (!$conn) {
                 $res1 = pg_get_result($conn);
@@ -40,6 +39,7 @@
                 if($d['username'] == $username && $d['password'] == $password) {
                     $_SESSION['isAdminLogin'] = 'true';
                     $_SESSION['isLogin'] = 'true';
+                    
                     header("Location: index.php");
                     $login = true;
                 }
@@ -68,7 +68,6 @@
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($_POST['command'] === 'login') {
             funcLogin();
-            $_SESSION['isCalled'] = "true";
         } 
     }
 

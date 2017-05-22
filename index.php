@@ -1,8 +1,7 @@
 <?php
     session_start();
         function connectDB() {
-            $conn = pg_connect("dbname=graceangelica user=postgres password=bocahtengil");
-            //$conn = pg_connect("host = localhost port = 5433 dbname = kelompok_a04 user = postgres password = h4h4h1h1");
+            $conn = pg_connect("host=localhost port=5432 dbname=noviantialiasih user=postgres password=Apakekgitu1");
             
             if (!$conn) {
                 $res1 = pg_get_result($conn);
@@ -45,11 +44,19 @@
                 </div>
             </div>";
         } else if (isset($_SESSION['isUserLogin'])) {
-        echo "<div><div class='alert alert-info fade in'>
+            if (isset($_SESSION['isDaftar'])) {
+                echo "<div><div class='alert alert-info fade in'>
+                    <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>
+                    <p>Pendaftaran berhasil! Selamat datang, ".$_SESSION['nama'].".</p>
+                </div>
+            </div>";
+            } else {
+                echo "<div><div class='alert alert-info fade in'>
                     <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>
                     <p>Selamat datang, ".$_SESSION['nama']."!</p>
                 </div>
             </div>";
+            }
         }
      ?>
     </div>
@@ -81,8 +88,8 @@
                                     <li> <a href= 'hasilseleksi.php'>Hasil Seleksi</a> </li>
                                 </ul>
                             </li>
-
-                            <li> <a href= '#' id= 'logout-btn'>Log Out</a> </li>";
+                           
+                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
                         } else if (isset($_SESSION['isAdminLogin'])) {
                             echo "<li class='dropdown'> <a href='#''>Laman Admin <i class='fa fa-angle-down'></i></a>
                                     <ul role='menu' class='sub-menu'>
@@ -90,8 +97,8 @@
                                         <li><a href= 'form_rekapProdi.php'>Daftar Pelamar</a></li>
                                     </ul>
                                  </li>
-
-                            <li> <a href= '#' id= 'logout-btn'>Log Out</a> </li>";
+                     
+                            <li> <a href= 'logout.php' id= 'logout-btn'>Log Out</a> </li>";
                         }
                     ?>
                     </ul>
@@ -207,6 +214,5 @@
     <script type="text/javascript" src="js/lightbox.min.js"></script>
     <script type="text/javascript" src="js/wow.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <script type="text/javascript" src="js/logout.js"></script>    
 </body>
 </html>
